@@ -14,6 +14,7 @@
 | [frameworks/napcat.md](frameworks/napcat.md) | NapCat：同为 QQ 协议端，生态最广 |
 | [combos/qq-astrbot-napcat.md](combos/qq-astrbot-napcat.md) | 最流行组合的完整部署顺序 |
 | [combos/wechat-hermes.md](combos/wechat-hermes.md) | 微信 + Hermes 的完整部署顺序 |
+| [reference/deepseek-search.md](reference/deepseek-search.md) | DeepSeek 官方 Search / Fetch：字段、搜索语法、计费、server 工具 |
 | [reference/projects.md](reference/projects.md) | 社区项目清单：群聊/桌宠/角色资产/表情包/反面案例，附「能借用什么」 |
 
 ## 先想清楚三件事

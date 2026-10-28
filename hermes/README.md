@@ -161,14 +161,35 @@ monitor 脚本约定：
 
 ---
 
-## 7. 自建搜索（不依赖付费 API）
+## 7. 搜索与抓取
 
-DeepSeek 官方 API 没有搜索接口，Cline 网关也没有 `/search`（401/404）。
-自建脚本：`~/bin/websearch.py "查询词" [条数]`
+### 主力：DeepSeek 官方 Search / Fetch
 
-- 中文：搜狗（解析 `h3.vr-title`）
-- 英文兜底：DuckDuckGo lite（连续请求会返回 202 反爬页）
-- 结果格式：标题 / URL / 摘要
+```
+POST https://api.deepseek.com/v1/tools/search   # {query, count, need_content}
+POST https://api.deepseek.com/v1/tools/fetch    # {url} → Markdown
+```
+
+- 自研搜索引擎，返回结构化结果（标题/URL/摘要/正文/日期/权威性/rerank）
+- 支持 `site:`、`lang:`、`after:`、`before:`、精确短语
+- 各 5 元 / 1000 次成功请求，失败或空结果不计费
+- 详细字段见 `docs/reference/deepseek-search.md`
+
+封装：`~/bin/dstools.py`
+
+```bash
+dstools.py "查询" [--count 8] [--content] [--sum]
+dstools.py --fetch <url>
+```
+
+### 兜底：自建无 key 搜索
+
+`~/bin/websearch.py "查询词" [条数]` —— 中文走搜狗，英文兜底 DuckDuckGo lite。
+官方接口限额、报错，或不想花那 5 元时用。
+
+### 抓取 + 提炼（不消耗 Search 额度）
+
+`~/bin/fetch.py <url> [--sum]`：curl 抓页面、剥标签出正文，`--sum` 再让 deepseek-flash 提炼要点。
 
 > Hermes 自带的 `web_search` 免费后端返回过完全不相关的外语结果，不可信，只作最后兜底。
 
