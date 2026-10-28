@@ -4,7 +4,7 @@ QQ 机器人搭建流程：AstrBot + SnowLuma / anowluna + ClinePass，大肥鱼
 
 > 这份文档记录的是 2026-10-27 至 2026-10-28 在第二台 LightVela 云电脑上真实跑通的流程。
 > 仓库里不放任何密钥、token、密码、内网地址原文，凡是需要你自己填的地方都写成占位符。
-> 模型切换和表情包安装两步在写初版时还在验证中，相关小节已标注“待验证”，验证完再更新。
+> 模型切换和表情包安装已于 2026-10-28 14:05 验证完成，见步骤 5 和步骤 8；真实 QQ 发送仍需用户实测。
 
 ## 架构
 
@@ -74,8 +74,8 @@ sudo docker logs -f astrbot   # 初始面板密码在容器日志里，服务端
 
 - 提供方类型：OpenAI 兼容
 - base：`https://api.cline.bot/api/v1`
-- 模型：见 `config/astrbot-provider.example.json`。写初版时正在从 deepseek-v4.1-flash-1017 切换到最便宜的 mimo-v2.6-flash，切换结果待验证，验证前不要把切换写成已完成。
-- 配完做提供方测试：状态为 available、错误为空才算通。提供方测试通了不等于 QQ 聊天端到端通了，后者要真在 QQ 上发消息验证。
+- 模型：见 `config/astrbot-provider.example.json`。已于 2026-10-28 从 deepseek-v4.1-flash-1017 切换到最便宜的 mimo-v2.6-flash，提供方测试 available、错误为空，无需重启。
+- 提供方测试通了不等于 QQ 聊天端到端通了，后者要真在 QQ 上发消息验证。
 
 ### 6. 配大肥鱼人格
 
@@ -93,10 +93,11 @@ sudo docker logs -f astrbot   # 初始面板密码在容器日志里，服务端
 
 跳过：bili_activity（重）、长期记忆 livingmemory（本地 Ollama 重、托管要 key）、NapCat。
 
-### 8. 表情包（待验证）
+### 8. 表情包（已验证）
 
 选定来源：DejavuMoe/deepseek_wale_girl，104 张 DeepSeek 鲸鱼娘动态表情，GIF 512×512 透明底，MIT 许可。
-见 `stickers/README.md`。安装机制（stealer 能否从文件夹直接喂入）在写初版时还在验证，验证完再把确切步骤写进来，不要凭猜测写。
+见 `stickers/README.md`。机制：stealer v3.1.11 图库已播种 104 张，face_convert 不提供可发图库是此前“没有表情包”的原因。
+注意：粗分类有 77 张落入 confused，按情绪自动匹配精度可能不完美，关键词检索更可靠；真实 QQ 发送仍需实测。
 
 ### 9. QQ 实测
 
@@ -129,7 +130,7 @@ sudo docker logs -f astrbot   # 初始面板密码在容器日志里，服务端
 - `config/onebot.example.json`：SnowLuma 新增 wsClients 模板（token 用占位符）
 - `persona/大肥鱼-人格.md`：大肥鱼 v2.1 人格原文，来源见上文
 - `plugins/README.md`：插件安装说明
-- `stickers/README.md`：表情包来源与安装（待验证部分已标注）
+- `stickers/README.md`：表情包来源与 stealer 安装（已验证）
 
 ## 致谢与出处
 
