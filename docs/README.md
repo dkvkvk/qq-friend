@@ -13,7 +13,9 @@
 | [frameworks/snowluma.md](frameworks/snowluma.md) | SnowLuma：NTQQ 注入式协议端 |
 | [frameworks/napcat.md](frameworks/napcat.md) | NapCat：同为 QQ 协议端，生态最广 |
 | [combos/qq-astrbot-napcat.md](combos/qq-astrbot-napcat.md) | 最流行组合的完整部署顺序 |
+| [combos/qq-two-paths.md](combos/qq-two-paths.md) | QQ 对话的两条路径：AstrBot（正在跑）与 DSH + qq-bridge（已停），含两条路的配置流程与可加项 |
 | [combos/wechat-hermes.md](combos/wechat-hermes.md) | 微信 + Hermes 的完整部署顺序 |
+| [reference/concepts.md](reference/concepts.md) | 概念问答：VNC、OneBot、NapCat、qq-bridge（聊天整理版，无密钥实值） |
 | [reference/deepseek-search.md](reference/deepseek-search.md) | DeepSeek 官方 Search / Fetch：字段、搜索语法、计费、server 工具 |
 | [reference/projects.md](reference/projects.md) | 社区项目清单：群聊/桌宠/角色资产/表情包/反面案例，附「能借用什么」 |
 

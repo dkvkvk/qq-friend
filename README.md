@@ -5,6 +5,9 @@ QQ 机器人搭建流程：AstrBot + SnowLuma / anowluna + ClinePass，大肥鱼
 > 这份文档记录的是 2026-10-27 至 2026-10-28 在第二台 LightVela 云电脑上真实跑通的流程。
 > 仓库里不放任何密钥、token、密码、内网地址原文，凡是需要你自己填的地方都写成占位符。
 > 模型切换和表情包安装已于 2026-10-28 14:05 验证完成，见步骤 5 和步骤 8；真实 QQ 发送仍需用户实测。
+> QQ 对话的两条路径、两条路的配置流程与可加项，见 `docs/combos/qq-two-paths.md`；
+> VNC、OneBot、NapCat、qq-bridge 的概念问答，见 `docs/reference/concepts.md`。
+> 本仓库的完整部署手册见 `docs/README.md`。
 
 ## 架构
 
