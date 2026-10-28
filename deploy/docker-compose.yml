@@ -1,0 +1,15 @@
+# AstrBot 示例模板（仅作起点，面板里的 OneBot / 提供方配置仍需按 README 手动核对）
+# 注意：SnowLuma / anowluna 不在本 compose 里，它由用户本人在机器上单独安装、登录。
+services:
+  astrbot:
+    image: soulter/astrbot:v4.29.0
+    container_name: astrbot
+    restart: unless-stopped
+    ports:
+      # AstrBot 面板，云电脑内访问 http://127.0.0.1:6185
+      - "6185:6185"
+    volumes:
+      - ./data:/AstrBot/data
+    environment:
+      # 不要在这里写任何 API key / token / 密码，密钥只在面板里填
+      - TZ=Asia/Shanghai

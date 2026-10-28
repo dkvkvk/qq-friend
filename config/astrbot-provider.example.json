@@ -1,0 +1,1 @@
+{"api_base":"https://api.cline.bot/api/v1","api_key":"<YOUR_CLINEPASS_KEY_HERE>","model":"cline-pass/mimo-v2.6-flash","note":"规则：只用 flash 版模型，哪个便宜用哪个。写初版时正在从 cline-pass/deepseek-v4.1-flash-1017 切换到 cline-pass/mimo-v2.6-flash，切换结果待验证。flash 模型都有识图能力，基础看图不需要百炼。","provider_id":"clinepass","provider_type":"openai_chat_completion"}
